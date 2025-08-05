@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddharth Rajan | Mobile Portfolio</title>
+    <style>
+        /* General Page Styling */
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures full height */
+            font-family: Arial, sans-serif;
+            justify-content: space-between; /* Pushes content up and button down */
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 2em;
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: #00ccff;
+        }
+
+        /* About Me Section */
+        .placeholder-box {
+            width: 90%;
+            max-width: 700px;
+            background: rgba(255, 0, 0, 0.1);
+            color: white;
+            font-size: 1em;
+            margin: 20px auto;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #ff6666;
+            animation: pulseBorder 1.5s infinite alternate;
+            font-family: 'Courier New', monospace;
+            border-radius: 10px;
+        }
+
+        /* Flashing Border Effect */
+        @keyframes pulseBorder {
+            0% { box-shadow: 0 0 5px #ff6666; }
+            50% { box-shadow: 0 0 20px #ff3333; }
+            100% { box-shadow: 0 0 5px #ff6666; }
+        }
+
+        /* Typing Effect */
+        .typed-text::after {
+            content: '|';
+            display: inline-block;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Buttons */
+        .glow-button {
+            font-size: 1em;
+    padding: 8px 16px;
+    border: 2px solid #00ffcc;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ffcc;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto; /* Adds space between the button and content */
+    box-shadow: 0 0 8px #00ffcc;
+    transition: 0.3s;
+        }
+       
+
+        .glow-button:hover {
+            background: #00ffcc;
+            color: black;
+        }
+
+         /* Project Card Styling */
+         .project-card {
+            width: 90%;
+            max-width: 700px;
+            background: rgba(0, 255, 204, 0.1);
+            color: white;
+            font-size: 1em;
+            margin: 20px auto;
+            padding: 15px;
+            text-align: left;
+            border: 2px solid #00ffcc;
+            font-family: 'Courier New', monospace;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Slide-in effect when visible */
+        .project-card.slide-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Skills Section Styling */
+.skills-section {
+    width: 90%;
+    max-width: 700px;
+    background: rgba(0, 255, 204, 0.1);
+    color: white;
+    font-size: 1em;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: left;
+    border: 2px solid #00ffcc;
+    font-family: 'Courier New', monospace;
+    border-radius: 10px;
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Fade-In Active Class */
+.skills-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header Styling */
+.skills-header {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ccff;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff;
+}
+
+/* Bold Category Titles */
+.skills-section p strong {
+    color: #00ffcc;
+}
+
+/* General Section Container - Start Visible */
+.info-section {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(0, 255, 204, 0.1);
+    color: white;
+    font-size: 1em;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: left;
+    border: 2px solid #00ffcc;
+    font-family: 'Courier New', monospace;
+    border-radius: 10px;
+    opacity: 1; /* Ensures always visible */
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Slide-in from Left */
+.slide-in-left {
+   /* transform: translateX(0);
+}
+.extracurricular {
+    transform: translateX(-100px);
+}
+
+/* Slide-in from Right */
+.slide-in-right {
+    transform: translateX(0);
+}
+.slide-right {
+    transform: translateX(100px);
+}
+
+/* Scale-up with Fade */
+.scale-fade-in {
+    transform: scale(1);
+}
+.initiatives {
+    transform: scale(0.8);
+}
+
+/* Fade-in from Bottom */
+.fade-in {
+    transform: translateY(0);
+}
+.fade-bottom {
+    transform: translateY(50px);
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h1>Siddharth Rajan</h1>
+    <h2>Software Developer | AI/ML | Full-Stack | Data-Driven Solutions</h2>
+
+    
+    <h2 class="section-title">About me::</h2>
+
+
+    <!-- About Me Section with Typing Effect -->
+    <div class="placeholder-box">
+        <span class="typed-text"></span>
+    </div>
+
+
+<!-- Projects Section -->
+<h2 class="section-title">Projects:</h2>
+
+
+   <!-- Projects Section -->
+<div class="project-card">
+    <h3>Chatsite Application</h3>
+    <p><strong>Explanation:</strong> Created a real-time chat site using Node.js, EJS, WebSockets, and SQL for forums and posts. Integrated bcrypt for authentication.</p>
+    <p><strong>Skills Used:</strong> Node.js, EJS, WebSockets, SQL, bcrypt</p>
+    <a href="https://github.com/siddharthr2004/mainWebsite" class="glow-button" target="_blank">GitHub</a>
+    <a href="https://chatsite.siddharth-rajan.dev/" class="glow-button" target="_blank">Live Demo</a>
+</div>
+
+<div class="project-card">
+    <h3>Reddit Trend Analyzer</h3>
+    <p><strong>Explanation:</strong> Developed a site for analyzing subreddit trends using NLP and regression analysis. Uses PostgreSQL for sentiment storage.</p>
+    <p><strong>Skills Used:</strong> Python, NLP, Regression Analysis, PostgreSQL, API Development</p>
+    <a href="https://github.com/siddharthr2004/subRedditInformation" class="glow-button" target="_blank">GitHub</a>
+</div>
+
+<div class="project-card">
+    <h3>Weather Data Analysis</h3>
+    <p><strong>Explanation:</strong> Built a site that visualizes weather trends using the NOAA API and Chart.js. Integrated Google Maps API for geolocation insights.</p>
+    <p><strong>Skills Used:</strong> Node.js, EJS, NOAA API, Chart.js, Google Maps API</p>
+    <a href="https://github.com/siddharthr2004/pastWeatherRecords" class="glow-button" target="_blank">GitHub</a>
+    <a href="https://pastweather.siddharth-rajan.dev/" class="glow-button" target="_blank">Live Demo</a>
+</div>
+
+<div class="project-card">
+    <h3>C Cache Simulator</h3>
+    <p><strong>Explanation:</strong> Designed a cache simulator in C to model custom cache behavior, calculate hit/miss rates, and optimize performance.</p>
+    <p><strong>Skills Used:</strong> C, Memory Allocation, LRU Cache, File I/O</p>
+    <a href="https://github.com/siddharthr2004/CacheSimulator" class="glow-button" target="_blank">GitHub</a>
+</div>
+
+
+    <!-- Skills Section -->
+<div class="skills-section">
+    <h2 class="skills-header">Skills</h2>
+    <p><strong>Languages:</strong> Java, C, C++, Python, JavaScript, R, BASH, Assembly</p>
+    <p><strong>Frontend frameworks:</strong> HTML, CSS, Chart.js, Next.js, React</p>
+    <p><strong>Backend frameworks:</strong> Node.js, Express, EJS, bcrypt</p>
+    <p><strong>APIs and Integration:</strong> Google Cloud API, Government Data API systems, PRAW API, OAuth 2.0</p>
+    <p><strong>Machine learning and NLP:</strong> BERT, NLTK, scikit-learn, SpaCy, Pandas</p>
+    <p><strong>Databases:</strong> SQL, PostgreSQL, MongoDB, MySQL</p>
+    <p><strong>Other:</strong> GitHub, GitHub Flow</p>
+</div>
+
+<!-- Extracurricular Activities (Slide from Left) -->
+<div class="info-section extracurricular">
+    <h2 class="info-header">Extracurricular Activities</h2>
+    <ul>
+        <li>Active member of UW-Madison’s “Leetcode Club” detailing strategies on solving LC problems and sharing interview preparation techniques.</li>
+        <li>Active member of the school's “Alexander Hamilton Society”, engaging in discussions on geopolitics and its economic implications.</li>
+    </ul>
+</div>
+
+<!-- Independent Initiatives (Fade & Scale Up) -->
+<div class="info-section initiatives">
+    <h2 class="info-header">Independent Initiatives</h2>
+    <ul>
+        <li>Freelance tutor lessons to college students focused on foundational programming in Java and Python. Created customized lesson plans to accommodate students.</li>
+        <li>Host a YouTube channel tailored toward teaching LeetCode lessons, explaining problem-solving strategies and solutions.</li>
+        <li>Regular contributor to open-source projects, providing bug fixes and feature implementations in GitHub repositories.</li>
+
+    </ul>
+</div>
+
+   <!-- Back to Desktop Version
+<a href="index.html" class="glow-button" id="switchToDesktop">Go to Desktop Version</a>
+ -->
+
+    <!-- JavaScript for Typing Effect -->
+    <script>
+        const aboutMeText = "I'm a passionate software developer and a junior at UW-Madison with expertise in AI/ML, full-stack development, and data-driven solutions. " +
+                            "My work revolves around building innovative technologies that enhance efficiency and create meaningful insights. " +
+                            "With experience in multiple frameworks, API integrations, and database management, I constantly strive to push the boundaries of what's possible in the tech world. " +
+                            "I thrive in fast-paced environments where complex problems require creative and efficient solutions. " +
+                            "Whether it's designing scalable systems, optimizing machine learning models, or integrating cutting-edge APIs, I am always eager to learn and innovate. " +
+                            "Beyond coding, I enjoy mentoring, collaborating with like-minded individuals, and exploring new advancements in technology that drive the world forward.";
+        let index = 0;
+
+        function typeEffect() {
+            if (index < aboutMeText.length) {
+                document.querySelector(".typed-text").textContent += aboutMeText.charAt(index);
+                index++;
+                setTimeout(typeEffect, 50);
+            }
+        }
+
+        window.onload = typeEffect;
+
+        //const desktopButton = document.getElementById("switchToDesktop");
+ /*
+if (desktopButton) {
+    desktopButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevents default link action
+        console.log("Switching to desktop version...");
+        window.location.href = "mainPage.html"; // Redirects to index.html
+    });
+}
+    */
+
+        document.addEventListener("DOMContentLoaded", function() {
+    function handleScroll() {
+        const cards = document.querySelectorAll('.project-card');
+        const skillsSection = document.querySelector('.skills-section');
+        const infoSections = document.querySelectorAll('.info-section');
+        const triggerPoint = window.innerHeight * 0.85;
+
+        console.log("Scroll event triggered");
+        console.log("Project cards found:", cards.length);
+        console.log("Skills section found:", skillsSection ? "Yes" : "No");
+        console.log("Info sections found:", infoSections.length);
+
+        // Slide-in effect for project cards
+        cards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < triggerPoint) {
+                console.log("Adding slide-in to:", card);
+                card.classList.add('slide-in');
+            }
+        });
+
+        // Fade-in effect for skills section
+        if (skillsSection) {
+            const skillsTop = skillsSection.getBoundingClientRect().top;
+            if (skillsTop < triggerPoint) {
+                console.log("Adding fade-in to skills section");
+                skillsSection.classList.add('fade-in');
+            }
+        }
+
+        // Unique animations for each info section
+        infoSections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < triggerPoint) {
+                infoSections.classList.add('fade-in');
+            }
+        });
+    }
+
+    // Event listener for scrolling
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check on load
+});
+    </script>
+
+</body>
+</html>

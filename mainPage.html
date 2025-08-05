@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddharth Rajan | Portfolio</title>
+    <script>
+        if (window.innerWidth <= 768) {
+            window.location.href = "mobile.html"; // Redirect to mobile version
+        }
+    </script>
+    <style>
+        /* General Page Styling */
+        
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            color: #00ffcc;
+            text-shadow: 0 0 15px #00ffcc;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #00ccff;
+        }
+
+        /* Glowing buttons */
+        .glow-button {
+            font-size: 1.1em;
+            padding: 8px 20px;
+            border: 2px solid #00ffcc;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00ffcc;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 0 8px #00ffcc;
+            position: absolute;
+            min-width: 130px;
+            min-height: 35px;
+        }
+
+        /* Positioning for About Me button */
+        #about-me-btn {
+            top: 28%;
+            left: 44%;
+        }
+
+        .github-container {
+    display: flex; /* Aligns items in a row */
+    align-items: center; /* Vertically aligns them */
+    gap: 10px; /* Adds slight space between label and link */
+    margin-left: 300px; /* Moves it 50px to the right */
+
+}
+
+.github-label {
+    font-weight: bold;
+    color: white;
+}
+
+.github-link {
+    color: #4db8ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.github-link:hover {
+    text-shadow: 0px 0px 10px #4db8ff;
+}
+
+.linkedin-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between label and link */
+    transform: translateX(864px); /* Moves right */
+    margin-top: -21.4px; /* Moves it UP */
+
+
+}
+
+.linkedin-label {
+    font-weight: bold;
+    color: white;
+}
+
+.linkedin-link {
+    color: #4db8ff; /* Light blue, same as GitHub */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.linkedin-link:hover {
+    text-shadow: 0px 0px 10px #4db8ff;
+}
+
+
+/* 🔥 Fix: Ensure only one border */
+.project-box {
+    width: 100%;
+    background: transparent;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px;
+    border-radius: 10px;
+    border: none; /* 🔥 Fix: Remove duplicate borders */
+    box-shadow: none !important; /* 🔥 Force remove unwanted shadows */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+   /* 🔥 Placeholder Text Box (Below About Me) */
+        .placeholder-box {
+            position: absolute;
+            top: 40%;
+            left: 19%;
+            width: 900px;
+            height: 350px;
+            background: rgba(255, 0, 0, 0.1);
+            color: white;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 2px solid #ff6666;
+            animation: pulseBorder 1.5s infinite alternate;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+          }
+
+          /* Typing effect */
+        .typed-text::after {
+            content: '|';
+            display: inline-block;
+            animation: blink 0.7s infinite;
+        }
+
+        /* 🔥 Terminal Box Styling */
+        .terminal {
+            width: 300px;
+            height: 50px;
+            background-color: black;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            position: absolute;
+            text-align: left;
+            overflow: hidden;
+            box-shadow: 0 0 12px #00ff00;
+        }
+
+        /* Positioning for Terminal Boxes */
+        #terminal-left {
+            top: 5%;
+            left: 5%;
+        }
+
+        #terminal-right {
+            top: 5%;
+            right: 5%;
+        }
+
+         /* 🔥 Flashing Border Effect */
+         @keyframes pulseBorder {
+            0% { box-shadow: 0 0 5px #ff6666; }
+            50% { box-shadow: 0 0 20px #ff3333; }
+            100% { box-shadow: 0 0 5px #ff6666; }
+        }
+
+        /* Projects Section */
+        .projects-section {
+            margin-top: 550px;
+            transform: translateX(40px); /* Moves it slightly to the right */
+
+        }
+
+        .projects-title {
+            font-size: 2em;
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffcc;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px auto;
+    width: 60%;
+    color: white;
+    text-align: left;
+    font-size: 1em;
+    box-shadow: 0 0 8px #00ffcc;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    font-family: 'Courier New', monospace;
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 200px; /* Restricts height */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+
+        }
+
+        .project-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    text-align: left; /* Moves project name to top-left */
+}
+
+.project-card p {
+    margin: 5px 0;
+}
+
+.project-card a {
+    color: #00ccff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+        /* Typing effect */
+        .typed-text::after {
+            content: '|';
+            display: inline-block;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Skills Section */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    position: relative;
+}
+
+/* Separate the "Skills" title from the box */
+.skills-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #00ccff;
+    text-shadow: 0 0 15px #00ccff;
+    margin-bottom: 10px;
+    margin-top: -30px; /* Moves it up */
+    position: relative;
+}
+
+/* Skills Box */
+.skills-section {
+    text-align: left;
+    width: 60%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffcc;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00ffcc;
+    margin-left: 80px; /* Moves it slightly to the right */
+
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    font-family: 'Courier New', monospace;
+}
+
+/* Fade-in effect */
+.skills-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Professional Development Section */
+.professional-development {
+            margin-top: -170px; /* Moves it up */
+
+            text-align: left;
+            width: 60%;
+            margin-left: 315px; /* Moves it right */
+
+            margin-right: auto;
+            padding: 20px;
+            border-top: 2px solid #00ffcc;
+            font-family: 'Courier New', monospace;
+        }
+
+        .professional-development h2 {
+            font-size: 1.5em;
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+            font-weight: bold;
+        }
+
+        .professional-development ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .professional-development li {
+            margin: 10px 0;
+        }
+
+
+        /* Flashing Arrows */
+        .arrow {
+            position: absolute;
+            top: -20%;
+            transform: translateY(-50%);
+            font-size: 8em;
+            color: white;
+            animation: blink 1s infinite alternate;
+        }
+
+        .down-arrow {
+            bottom: 200px;
+            left: 90%;
+            transform: translateX(-50%);
+        }
+
+        .down-arrow2 {
+            bottom: 200px;
+            left: 10%;
+            transform: translateX(-50%);
+        }
+
+        .arrow2 {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            font-size: 8em;
+            color: white;
+            animation: blink 1s infinite alternate;
+        }
+
+        .down-arrow3 {
+            bottom: 200px;
+            left: 90%;
+            transform: translateX(-50%);
+        }
+
+        .down-arrow4 {
+            bottom: 200px;
+            left: 10%;
+            transform: translateX(-50%);
+        }
+
+        .arrow3 {
+            position: absolute;
+            top: 100%;
+            transform: translateY(-50%);
+            font-size: 8em;
+            color: white;
+            animation: blink 1s infinite alternate;
+        }
+
+        .down-arrow5 {
+            bottom: 200px;
+            left: 90%;
+            transform: translateX(-50%);
+        }
+
+        .down-arrow6 {
+            bottom: 200px;
+            left: 10%;
+            transform: translateX(-50%);
+        }
+
+
+
+
+
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h1>Siddharth Rajan</h1>
+    <h2>Software Developer | AI/ML | Full-Stack | Data-Driven Solutions</h2>
+
+    <!-- 🔥 Terminal Boxes (Top Left & Top Right) -->
+    <div class="terminal" id="terminal-left">
+        <span id="terminal-text-left">Initializing...</span>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="placeholder-box" id="about-me-text">
+        <span class="typed-text"></span>
+    </div>
+
+    <div class="github-container">
+        <span class="github-label">GitHub:</span>
+        <a href="https://github.com/siddharthr2004" class="github-link">github.com/siddharthr2004</a>
+    </div>
+
+    <div class="linkedin-container">
+        <span class="linkedin-label">LinkedIn:</span>
+        <a href="https://www.linkedin.com/in/siddharth-rajan-339330313/" class="linkedin-link">
+            linkedin.com/in/siddharth-rajan-339330313
+        </a>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-section">
+        <h2 class="projects-title">Projects</h2>
+        <div class="scroll-message">→ Please scroll through the projects to view all links!</div>
+        <div class="arrow down-arrow">⬇</div>
+        <div class="arrow down-arrow2">⬇</div>
+        <div class="arrow2 down-arrow3">⬇</div>
+        <div class="arrow2 down-arrow4">⬇</div>
+        <div class="arrow3 down-arrow5">⬇</div>
+        <div class="arrow3 down-arrow6">⬇</div>
+
+        <div class="project-card" id="project1">
+            <h3>Chatsite Application</h3>
+            <p><strong>Explanation:</strong> Created a website which essentially functions as a chat-site. Made use of Node.js and EJS files to allow real-time changes when writing to the site. Integrated bcrypt for password hashing and express-session for user authentication. Utilized an SQL database to manage forums, posts, and comments. Fully functional with real-time forum, post, and comment creation.</p>
+            <p><strong>Skills Used:</strong> Node.js, EJS, WebSockets, SQL, bcrypt, express-session</p>
+            <a href="https://github.com/siddharthr2004/mainWebsite">🔗 GitHub</a>
+            <a href="https://chatsite.siddharth-rajan.dev/">🌐 Live Demo</a>
+        </div>
+        <div class="project-card" id="project2">
+            <h3>Reddit Trend Analyzer</h3>
+            <p><strong>Explanation:</strong> Implemented an analysis site that gathers and processes subreddit data using LLM models and regression analysis. Provides API access and visualized insights. Uses sentiment and emotional analysis on a continuous data stream to optimize product marketing. Leverages PostgreSQL for sentiment data storage, updated bi-weekly. Offers insights into evolving trends and demographic shifts within subreddit discussions.</p>
+            <p><strong>Skills Used:</strong> Python, NLP, Regression Analysis, PostgreSQL, API Development, Data Visualization</p>
+            <a href="https://github.com/siddharthr2004/subRedditInformation">🔗 GitHub</a>
+        </div>
+        <div class="project-card" id="project3">
+            <h3>Weather Data Analysis</h3>
+            <p><strong>Explanation:</strong> Developed a website that allows users to compare and contrast monthly weather variable changes across different cities. Utilized Node.js for backend development, integrated NOAA API for real-time weather data, and used Chart.js for visualization. Implemented Google Maps API to plot locations on a 2D map, enabling user interaction for weather insights. Parsed and processed JSON files for analytical computations.</p>
+            <p><strong>Skills Used:</strong> Node.js, EJS, NOAA API, Chart.js, Google Maps API, JSON Processing</p>
+            <a href="https://github.com/siddharthr2004/pastWeatherRecords">🔗 GitHub</a>
+            <a href="https://pastweather.siddharth-rajan.dev/">🌐 Live Demo</a>
+        </div>
+        <div class="project-card" id="project4">
+            <h3>C Cache Simulator</h3>
+            <p><strong>Explanation:</strong> Created a cache simulator that models a custom cache system and calculates hit, miss, and eviction rates. Utilized dynamic memory allocation methods to manage memory efficiently. Implemented an LRU replacement policy for optimal cache performance, reading and writing data to files. Designed as a simplified model inspired by Valgrind’s cache simulation tool.</p>
+            <p><strong>Skills Used:</strong> C, Memory Allocation, LRU Cache, File I/O</p>
+            <a href="https://github.com/siddharthr2004/CacheSimulator">🔗 GitHub</a>
+        </div>
+    </div>
+
+   <!-- Skills Section -->
+<div class="skills-container">
+    <h2 class="skills-title">Skills</h2> <!-- This is now outside the box -->
+    <div class="skills-section" id="skills">
+        <p><strong>Languages:</strong> Java, C, C++, Python, Javascript, R, BASH, Assembly</p>
+        <p><strong>Web-Development tools:</strong> Node.js, express, EJS, HTML, CSS, bcrypt, Google Cloud API, NOAA climate data API, PRAW API, Chart.js, PostgreSQL, BERT, NLTK, scikit-learn</p>
+        <p><strong>Data handling, management and visualization:</strong> JSON, SQL, SQLite, Git</p>
+    </div>
+</div>
+    
+
+   
+    <!-- JavaScript for Typing Effect -->
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const projectCards = document.querySelectorAll(".project-card");
+
+    const observerOptions = {
+        root: null, // Viewport-based observation
+        rootMargin: "0px",
+        threshold: 0.2, // Triggers when 20% of the element is visible
+    };
+
+    const projectObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const index = [...projectCards].indexOf(entry.target); // Get index of project
+                setTimeout(() => {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateX(0)";
+                }, index * 300); // Delays each one by 300ms
+                observer.unobserve(entry.target); // Ensures it only animates once
+            }
+        });
+    }, observerOptions);
+
+    projectCards.forEach(card => {
+        card.style.opacity = "0"; // Ensure projects start invisible
+        card.style.transform = "translateX(-100px)"; // Move them off-screen
+        projectObserver.observe(card);
+    });
+});
+
+
+const aboutMeText = "I'm a passionate software developer and a junior at UW-Madison with expertise in AI/ML, full-stack development, and data-driven solutions. " +
+                    "My work revolves around building innovative technologies that enhance efficiency and create meaningful insights. " +
+                    "With experience in multiple frameworks, API integrations, and database management, I constantly strive to push the boundaries of what's possible in the tech world. " +
+                    "I thrive in fast-paced environments where complex problems require creative and efficient solutions. " +
+                    "Whether it's designing scalable systems, optimizing machine learning models, or integrating cutting-edge APIs, I am always eager to learn and innovate. " +
+                    "Beyond coding, I enjoy mentoring, collaborating with like-minded individuals, and exploring new advancements in technology that drive the world forward.";
+        let index = 0;
+
+        function typeEffect() {
+            if (index < aboutMeText.length) {
+                document.querySelector(".typed-text").textContent += aboutMeText.charAt(index);
+                index++;
+                setTimeout(typeEffect, 50);
+            }
+        }
+
+        window.onload = typeEffect;
+    </script>
+
+    <div class="terminal" id="terminal-right">
+        <span id="terminal-text-right">Loading system diagnostics...</span>
+    </div>
+
+    <!-- 🔥 Buttons -->
+    <a href="#" class="glow-button" id="about-me-btn">About Me</a>
+
+   
+    
+
+    <!-- 🔥 JavaScript for Terminal Effect -->
+    <script>
+        const textArrayLeft = [
+            "Compiling AI sentiment models...",
+            "Fetching real-time data streams...",
+            "Analyzing neural network performance...",
+            "Optimizing API response times...",
+            "System stable. Ready for execution."
+        ];
+
+        const textArrayRight = [
+            "Fetching Reddit trend data...",
+            "Extracting top-mentioned keywords...",
+            "Tracking engagement metrics...",
+            "Running regression on subreddit trends...",
+            "System monitoring complete."
+        ];
+
+
+        let indexLeft = 0;
+        let indexRight = 0;
+
+        function updateTerminalText() {
+            document.getElementById('terminal-text-left').textContent = textArrayLeft[indexLeft];
+            document.getElementById('terminal-text-right').textContent = textArrayRight[indexRight];
+
+            indexLeft = (indexLeft + 1) % textArrayLeft.length;
+            indexRight = (indexRight + 1) % textArrayRight.length;
+        }
+
+        setInterval(updateTerminalText, 3000);
+        
+    </script>
+    <div class="skills-section" id="skills">
+        <h2>Skills</h2>
+        <p><strong>Languages:</strong> Java, C, C++, Python, Javascript, R, BASH, Assembly</p>
+        <p><strong>Web-Development tools:</strong> Node.js, express, EJS, HTML, CSS, bcrypt, Google Cloud API, NOAA climate data API, PRAW API, Chart.js, PostgreSQL, BERT, NLTK, scikit-learn</p>
+        <p><strong>Data handling, management and visualization:</strong> JSON, SQL, SQLite, Git</p>
+    </div>
+        <!-- skills -->
+
+        <!-- Professional Development Section -->
+    <div class="professional-development">
+        <h2>Professional Development</h2>
+        <ul>
+            <li>Current and active member of University's "Leetcode Club" detailing strategies on LC problems and prepping/helping others prep for interviews.</li>
+            <li>Current/active member of school's "Alexander Hamilton Society" - a group dedicated to conversing about geopolitics and both the economic and political implications of political news across the world.</li>
+            <li>Freelance tutor lessons to college students focused on foundational programming in Java and Python. Created customized lesson plans to accommodate for students.</li>
+            <li>Host a YouTube channel tailored toward teaching LeetCode lessons, explaining problem-solving strategies and solutions.</li>
+        </ul>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                document.getElementById("skills").classList.add("show");
+            }, 1000);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        document.getElementById("skills").classList.add("show");
+    }, 1000); // Smooth fade-in delay
+});
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
