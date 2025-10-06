@@ -107,7 +107,6 @@
 }
 
 
-/* 🔥 Fix: Ensure only one border */
 .project-box {
     width: 100%;
     background: transparent;
@@ -124,7 +123,6 @@
     align-items: center;
 }
 
-   /* 🔥 Placeholder Text Box (Below About Me) */
         .placeholder-box {
             position: absolute;
             top: 40%;
@@ -144,14 +142,12 @@
             font-family: 'Courier New', monospace;
           }
 
-          /* Typing effect */
         .typed-text::after {
             content: '|';
             display: inline-block;
             animation: blink 0.7s infinite;
         }
 
-        /* 🔥 Terminal Box Styling */
         .terminal {
             width: 300px;
             height: 50px;
@@ -178,7 +174,6 @@
             right: 5%;
         }
 
-         /* 🔥 Flashing Border Effect */
          @keyframes pulseBorder {
             0% { box-shadow: 0 0 5px #ff6666; }
             50% { box-shadow: 0 0 20px #ff3333; }
@@ -410,12 +405,10 @@
     <h1>Siddharth Rajan</h1>
     <h2>Software Developer | AI/ML | Full-Stack | Data-Driven Solutions</h2>
 
-    <!-- 🔥 Terminal Boxes (Top Left & Top Right) -->
     <div class="terminal" id="terminal-left">
         <span id="terminal-text-left">Initializing...</span>
     </div>
 
-    <!-- About Me Section -->
     <div class="placeholder-box" id="about-me-text">
         <span class="typed-text"></span>
     </div>
@@ -432,7 +425,6 @@
         </a>
     </div>
 
-    <!-- Projects Section -->
     <div class="projects-section">
         <h2 class="projects-title">Projects</h2>
         <div class="scroll-message">→ Please scroll through the projects to view all links!</div>
@@ -452,7 +444,7 @@
         </div>
         <div class="project-card" id="project2">
             <h3>Reddit Trend Analyzer</h3>
-            <p><strong>Explanation:</strong> Implemented an Analysis site using GPT and zero-shot classification t return best-fit products for advertising campaigns to specific subreddits. Custom neural network used along with CUDA to create efficient machine learned product-sub matching system</p>
+            <p><strong>Explanation:</strong> Implemented an Analysis site using GPT and zero-shot classification to return best-fit products for advertising campaigns to specific subreddits. Custom neural network used along with CUDA to create efficient machine learned product-sub matching system</p>
             <p><strong>Skills Used:</strong> Python, NLP, Regression Analysis, API Development, Data Visualization, Numpy, PyTorch, Hugging-face transformer</p>
             <a href="https://github.com/siddharthr2004/subRedditInformation">🔗 GitHub</a>
         </div>
@@ -538,13 +530,9 @@ const aboutMeText = "I'm a passionate software developer and a junior at UW-Madi
         <span id="terminal-text-right">Loading system diagnostics...</span>
     </div>
 
-    <!-- 🔥 Buttons -->
     <a href="#" class="glow-button" id="about-me-btn">About Me</a>
 
    
-    
-
-    <!-- 🔥 JavaScript for Terminal Effect -->
     <script>
         const textArrayLeft = [
             "Compiling AI sentiment models...",
@@ -583,9 +571,7 @@ const aboutMeText = "I'm a passionate software developer and a junior at UW-Madi
         <p><strong>Web-Development tools:</strong> Node.js, express, EJS, HTML, CSS, bcrypt, Google Cloud API, NOAA climate data API, PRAW API, Chart.js, PostgreSQL, BERT, NLTK, scikit-learn</p>
         <p><strong>Data handling, management and visualization:</strong> JSON, SQL, SQLite, Git</p>
     </div>
-        <!-- skills -->
 
-        <!-- Professional Development Section -->
     <div class="professional-development">
         <h2>Professional Development</h2>
         <ul>
@@ -606,7 +592,7 @@ const aboutMeText = "I'm a passionate software developer and a junior at UW-Madi
         document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.getElementById("skills").classList.add("show");
-    }, 1000); // Smooth fade-in delay
+    }, 1000); 
 });
     </script>
 
